@@ -9,11 +9,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'cucumber-rails'
 	gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
- 	gem 'spork'
 end
 
 group :assets do
