@@ -1,0 +1,39 @@
+<h1><%#= t :category %></h1>
+  <div class="edit_content">
+    <%= form_for @category, :url => ( @category.id ? category_path : category_path(@category.id))  do |f| %>
+      <div class="name_and_buttons_block">
+        <div class="right_part" >
+          <p> <%= t :category_name %>:  <%= f.text_field :name %></p>          
+          <div class="submit_buttons">
+            <div class="submit_button"><%= f.submit "#{I18n.t :update}" %></div>
+            <div class="submit_button">
+            <%= f.submit "#{I18n.t :cancel}",:name => "cancel", :style=>"margin-left:0px"%>
+            </div>
+      
+    <% end %>
+
+    <% if @category.id %>
+    <%= form_for @category, :url => category_path(params[:id]), :method=> "DELETE" do |f| %>
+            <div class="submit_button">
+              <%= f.submit "#{I18n.t :delete}", :style=>"margin-left:0px" %>
+            </div>
+    <% end %>
+    <%end%>
+          </div>
+        </div>
+        <div class="left_part">
+          <p style="width:550px;">Category image, click on it to change <br />
+          <a href="#" class="file_upload_href"><img src="<%= @category.image ? @category.image.path : BLANK_IMAGE %>" alt="Image does not exist"></a><br />
+          </p>
+          <!-- <input class="file_upload_href" type="button" value="here"> -->
+        </div>
+      </div>
+    <form id="upload-form" action='/images/upload' method='POST' enctype='multipart/form-data'>
+        <input class="hidden_upload_button" type='file' name='file'>
+        <input type="hidden" name="resource[name]" value="<%= @category.class %>">
+        <input type="hidden" name="resource[id]" value="<%= @category.id %>">
+        <input type="hidden" name="authenticity_token" value="<%= session[:_csrf_token] %>"/>
+    </form>    
+  </div>
+
+<br />

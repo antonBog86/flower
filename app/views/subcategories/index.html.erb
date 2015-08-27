@@ -1,0 +1,21 @@
+<div class="container eng" >
+  <div class="show_content_wrapper">
+    <div class="show_content">
+      <%= will_paginate @subcategories %>
+        <% @subcategories.each_with_index do |subcategory, i| %>
+          <div class="category_block">
+            <%= subcategory.name %>
+            <div class="category_image_block">
+              <a href=<%= admin_signed_in? ? edit_subcategory_path(:id => subcategory.id) : subcategory_path(subcategory) %>>
+                <img src=<%= subcategory.image ? subcategory.image.path : ""%>></a>
+            </div>
+          </div>
+        <% end %>
+        <div class="category_block">
+          <div class="category_image_block">
+            <a href=<%= new_subcategory_path %>><input type="button" value="Create new category"></a>
+          </div>
+        </div>  
+    </div>
+  </div>
+</div>

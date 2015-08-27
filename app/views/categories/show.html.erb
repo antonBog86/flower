@@ -1,0 +1,24 @@
+<div class="container eng" >
+  <div class="show_content_wrapper">
+    <div class="show_content">
+      <%= will_paginate @page_subcategories %>
+      <% @page_subcategories.each do |subcategory| %>
+        <div class="category_block">
+          <%= subcategory.name %>
+          <div class="category_image_block">
+            <a href=<%= edit_category_subcategory_path(@category, subcategory) %>>
+              <img src=<%= subcategory.image ? subcategory.image.path : BLANK_IMAGE%>></a>
+          </div>
+        </div>
+      <% end %>
+      <% if admin_signed_in? %>
+      <div class="category_block">
+        <div class="category_image_block">
+          <a href=<%= new_category_subcategory_path(@category) %>><input type="button" value="Create new category"></a>
+        </div>
+      </div>
+      <%end%>
+    </div>
+  </div>
+
+</div>
