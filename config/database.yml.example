@@ -1,0 +1,26 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: flower_development
+  pool: 30
+  username: some
+  password: password
+  socket: /tmp/mysql.sock
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: flower_test
+  pool: 30
+  username: some
+  password: password
+  socket: /tmp/mysql.sock
+
+production:
+  adapter: mysql2
+  database: flower_production
+  username: some
+  password: password
+  encoding: UTF8
+  reconnect: true
+  socket: /tmp/mysql.sock

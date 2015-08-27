@@ -1,11 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
-
-  def init
-    if session[:categories].nil? or session[:subcategories].nil?
-      session[:categories]    = Category.all
-      session[:subcategories] = Subcategory.all    
-    end
-  end
-
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
 end
