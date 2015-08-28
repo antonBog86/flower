@@ -5,16 +5,16 @@ development:
   pool: 30
   username: root
   password: mystery
-  socket: /tmp/mysql.sock
+  socket:   /var/run/mysqld/mysqld.sock
 
 test:
   adapter: mysql2
   encoding: utf8
   database: flower_test
   pool: 30
-  username: pkwde_test
-  password: bc9TXNbMQI
-  socket: /tmp/mysql.sock
+  username: root
+  password: mystery
+  socket:   /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql2
@@ -23,4 +23,4 @@ production:
   password: password
   encoding: UTF8
   reconnect: true
-  socket: /tmp/mysql.sock
+  socket:   /var/run/mysqld/mysqld.sock

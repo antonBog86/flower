@@ -22,6 +22,8 @@ gem 'haml'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
+gem 'twitter-bootstrap-rails'
+
 # image upload
 gem 'carrierwave'
 
