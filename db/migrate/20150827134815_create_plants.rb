@@ -10,6 +10,10 @@ class CreatePlants < ActiveRecord::Migration
       t.string    :blossom_duration
       t.text      :description
 
+      t.string    :seo_title
+      t.text      :seo_keywords
+      t.string    :seo_description, limit: 160
+
       t.timestamps null: false
     end
   end

@@ -1,92 +1,109 @@
 !!!
-%html{:lang => "en"}
+%html
   %head
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %title Flower1
-    = csrf_meta_tags
-    / Le HTML5 shim, for IE6-8 support of HTML elements
-    /[if lt IE 9]
-    -#<script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    / Le styles
-    = stylesheet_link_tag "application", :media => "all"
-    / Le fav and touch icons
-    %link{:href => "images/apple-touch-icon.png", :rel => "apple-touch-icon"}/
-    %link{:href => "images/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
-    %link{:href => "images/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
-  %body
-    / <div id='fb-root'></div>
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand{:href => "#"}
-            = "#{ I18n.t :s_name} #{ I18n.t :f_name} #{ I18n.t :t_name}"
-          .container.nav-collapse
-            %ul.nav
-              %li
-              %li
-            .container.langswitch{:style => "line-height: 5px; margin-top: 15px; margin-left: 1165px; "}
-              -#= link_to "En", {:controller => "home", :action => "change_locale", :locale => "en"}, :id => "en"
-              |
-              -##{link_to "Рус", {:controller => "home", :action => "change_locale", :locale => "ru"}, :id => "ru"} |
-              -##{link_to "Укр", {:controller => "home", :action => "change_locale", :locale => "ua"}, :id => "ua"}
-    / /.nav-collapse
-    .container
-      .content
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "keywords"}/
+    %title= content_for?(:title) ? yield(:title) : "Flower"
+    = csrf_meta_tags    
+    
+    = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+    = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
+    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+    %link{:href => "http://fonts.googleapis.com/css?family=Oxygen:400,300,700", :rel => "stylesheet", :type => "text/css"}/
+    /[if lt IE 8]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    = javascript_include_tag "application"
+    /[if lte IE 8] <link rel="stylesheet" href="css/ie/v8.css" />
+    /[if lte IE 9] <link rel="stylesheet" href="css/ie/v9.css" />
+  %body   
+    #header
+      = render 'layouts/header'        
+    #main
+      .container
+        %header
+          %h2 Gravida nibh quis urna
         .row
-          .span9
-            = yield
-            .back_link_block
-          .span3
-            .well.sidebar-nav{:style => "margin-top:64px"}
-              %h3
-                %a{:href => "<haml_loud"}
-                  categories_path  style="color:black; text-decoration:none">#{t :collection}
-              %ul.nav.nav-list
-                / <li class="nav-header">Sidebar</li>
-                -#- session[:categories].each do |category|
-                  %li= link_to category.name, category_path(category)
-                  - session[:subcategories].select{|i| i.category_id == category.id}.each do |subcategory|
-                    %ul
-                      %li= link_to subcategory.name, category_subcategory_path(category,subcategory)
-            / /.well
-            #image_info_block
-    / /span
-    / /row
-    / /content
-    / /container
-    %footer.footer
-      #footer.navbar.navbar-fixed-bottom
-        .navbar-inner
-          .container
-            %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-              %span.icon-bar
-              %span.icon-bar
-              %span.icon-bar
-            .container.nav-collapse
-              %ul.nav
+          .3u
+            %section
+              %a.image.full{:href => "#"}
+                %img{:alt => "", :src => asset_path("pics01.jpg")}/
+              %p Quisque dictum. Pellentesque viverra  enim. Integer nisl risus, sagittis convallis, rutrum id, elementum.
+              %a.button{:href => "#"} Read More
+          .3u
+            %section
+              %a.image.full{:href => "#"}
+                %img{:alt => "", :src => asset_path("pics11.jpg")}/
+              %p Pellentesque viverra  enim. Tristique ante ut risus. Quisque dictum. Integer sagittis convallis elementum.
+              %a.button{:href => "#"} Read More
+          .3u
+            %section
+              %a.image.full{:href => "#"}
+                %img{:alt => "", :src => asset_path("pics12.jpg")}/
+              %p Pellentesque viverra  enim. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum.
+              %a.button{:href => "#"} Read More
+          .3u
+            %section
+              %a.image.full{:href => "#"}
+                %img{:alt => "", :src => asset_path("pics13.jpg")}/
+              %p Tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis elementum.
+              %a.button{:href => "#"} Read More
+        .divider  
+        .row
+          / Content
+          .8u.skel-cell-important
+            %section#content
+              %header
+                %h2 Integer gravida nibh quis urna
+                %span.byline Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum
+              %p
+                %a.image.full{:href => "#"}
+                  %img{:alt => "", :src => asset_path("pics02.jpg")}/
+              %p
+                This is
+                = succeed "," do
+                  %strong Monochromed
+                = succeed "." do
+                  %a{:href => "http://templated.co"} TEMPLATED
+                %a{:href => "http://templated.co/license"} Creative Commons Attribution
+                license, so use it for whatever (personal or commercial) – just give us credit! Check out more of our stuff at
+                %a{:href => "http://templated.co"} our site
+                or follow us on
+                = succeed "." do
+                  %a{:href => "http://twitter.com/templatedco"} Twitter
+              %a.button{:href => "#"} Read More
+          / /Content
+          / Sidebar
+          #sidebar.4u
+            %section
+              %header
+                %h2 Gravida praesent
+                %span.byline Praesent lacus congue rutrum
+              %p Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum. Maecenas luctus lectus at sapien. Consectetuer adipiscing elit.
+              %ul.default
                 %li
-                  %a{:href => "<haml_loud"}
-                    page_path("about")>#{t :about}
+                  %a{:href => "#"} Pellentesque quis lectus gravida blandit.
                 %li
-                  %a{:href => "<haml_loud"}
-                    page_path("support")>#{t :contacts}
+                  %a{:href => "#"} Lorem ipsum consectetuer adipiscing elit.
                 %li
-                  %a{:href => "<haml_loud"}
-                    page_path("contacts")>#{t :support}
-              %ul.nav.pull-right
+                  %a{:href => "#"} Phasellus nec nibh pellentesque congue.
                 %li
-                  -#= link_to "Welcome Page", admin_signed_in? ? root_url + "admin": root_url
-                - if admin_user_signed_in?
-                  %li
-                    = link_to "Logout", destroy_admin_session_path, :method => :delete
-        / /.nav-collapse
-        /
-          Le javascript
-          \==================================================
-        / Placed at the end of the document so the pages load faster
-        = javascript_include_tag "application"
+                  %a{:href => "#"} Cras aliquam risus pellentesque pharetra.
+                %li
+                  %a{:href => "#"} Duis non metus commodo euismod lobortis.
+                %li
+                  %a{:href => "#"} Lorem ipsum dolor adipiscing elit.
+          / Sidebar
+    / Main
+    / Footer          
+    #copyright
+      .container
+        design:
+        %a{:href => "http://templated.co"} TEMPLATED   
+        developer:     
+        %a{:href => "https://www.linkedin.com/pub/anton-bogarsukov/49/438/568"} Anton
+        

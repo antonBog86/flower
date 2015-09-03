@@ -1,0 +1,18 @@
+---
+ru:
+  activerecord:
+    models:
+      image:
+        one: Фотография
+        other: Фотографии
+    attributes:
+      image:
+        name: Название
+        path: Путь
+        version: Версия        
+        plant_id: Растение
+        category_id: Категория
+        weight: Вес
+    errors:
+      models:
+        contact:

@@ -9,19 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require font-awesome
+ *= require skel-noscript
+ *= require style-mobile
+ *= require style-1000px
+ *= require style-desktop
+ *= require style
 */
-
-.back_link_block{
-  text-align:center;
-  clear:both;
-  margin-top:30px;
-}
-.back_link_block .back_link{
-  font-size:16px;
-  text-align:center;
-}
-.back_link:hover{
-  color: black;
-  text-decoration:none;
-}

@@ -4,6 +4,10 @@ class CreateCategories < ActiveRecord::Migration
       t.string :name,       index: true
       t.integer :parent_id, index: true
 
+      t.string    :seo_title
+      t.text      :seo_keywords
+      t.string    :seo_description, limit: 160
+
       t.timestamps null: false
     end
   end

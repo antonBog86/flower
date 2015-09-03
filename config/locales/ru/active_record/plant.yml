@@ -1,0 +1,25 @@
+---
+ru:
+  activerecord:
+    models:
+      plant:
+        one: Растение
+        other: Растения
+    attributes:
+      plant:
+        category_id: Категория
+        category: Категория
+        name: Название
+        science_name: Научное название
+        leaf_collor: Цвет листьев
+        blossom_collor: Цвет цветка
+        blossom_start: Начало цветения
+        blossom_duration: Длительность цветения
+        description: Описание
+        seo_title: Поисковое имя
+        seo_keywords: Ключевые слова поиска
+        seo_description: Описание для роботов
+
+    errors:
+      models:
+        contact:

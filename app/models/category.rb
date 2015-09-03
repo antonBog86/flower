@@ -4,5 +4,5 @@ class Category < ActiveRecord::Base
 
   has_many  :images
 
-  self.per_page = 8
+  # self.per_page = 8
 end

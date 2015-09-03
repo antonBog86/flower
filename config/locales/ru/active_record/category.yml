@@ -1,0 +1,21 @@
+---
+ru:
+  activerecord:
+    models:
+      category:
+        one: Категория
+        other: Категории
+    attributes:
+      category:
+        name: Название
+        parent: Родительская категория
+        parent_id: Родительская категория
+        created_at: Создан 
+        updated_at: Обновлен
+        seo_title: Поисковое имя
+        seo_keywords: Ключевые слова поиска
+        seo_description: Описание для роботов
+
+    errors:
+      models:
+        contact:

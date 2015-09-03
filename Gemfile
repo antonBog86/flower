@@ -18,9 +18,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # view & styles
-gem 'haml'
+gem 'haml-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem "font-awesome-rails"
 
 gem 'twitter-bootstrap-rails'
 
@@ -31,6 +32,10 @@ gem 'carrierwave'
 gem 'devise'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
+
+gem 'sitemap_generator'
+
+gem 'meta-tags'
 
 # Use Capistrano for deployment
 gem 'capistrano', '~> 3.2.1'

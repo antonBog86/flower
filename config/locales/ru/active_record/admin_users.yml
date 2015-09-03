@@ -1,0 +1,19 @@
+---
+ru:
+  activerecord:
+    models:
+      admin_user:
+        one: Администратор
+        other: Администраторы
+    attributes:
+      admin_user:
+        email: Электнонная почта
+        current_sign_in_at: Последняя авторизация
+        sign_in_count: Количество авторизаций
+        created_at: Создан 
+        password: Пароль
+        password_confirmation: Подтверждение пароля        
+
+    errors:
+      models:
+        contact:

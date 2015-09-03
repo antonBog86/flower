@@ -1,6 +1,6 @@
 class Plant < ActiveRecord::Base
-  belongs_to  :subcategory
+  belongs_to  :category
   has_many    :images
 
-  self.per_page = 10
+  # self.per_page = 10
 end

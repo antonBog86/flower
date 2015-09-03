@@ -2,7 +2,7 @@ class Image < ActiveRecord::Base
   belongs_to :plant
   belongs_to :category
 
-  self.per_page = 10
+  # self.per_page = 10
 
   def self.upload(file, resource)
     error = nil

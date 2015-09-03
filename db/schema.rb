@@ -47,10 +47,13 @@ ActiveRecord::Schema.define(version: 20150827140923) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "parent_id",  limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",            limit: 255
+    t.integer  "parent_id",       limit: 4
+    t.string   "seo_title",       limit: 255
+    t.text     "seo_keywords",    limit: 65535
+    t.string   "seo_description", limit: 160
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "categories", ["name"], name: "index_categories_on_name", using: :btree
@@ -80,6 +83,9 @@ ActiveRecord::Schema.define(version: 20150827140923) do
     t.string   "blossom_start",    limit: 255
     t.string   "blossom_duration", limit: 255
     t.text     "description",      limit: 65535
+    t.string   "seo_title",        limit: 255
+    t.text     "seo_keywords",     limit: 65535
+    t.string   "seo_description",  limit: 160
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end
