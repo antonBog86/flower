@@ -31,11 +31,21 @@ gem 'carrierwave'
 # auth
 gem 'devise'
 
+# state machine
+gem 'aasm'
+
+# admin_panel
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'sitemap_generator'
 
 gem 'meta-tags'
+
+gem 'uniquify'
+
+gem "config"
+
+gem 'sidekiq'
 
 # Use Capistrano for deployment
 gem 'capistrano', '~> 3.2.1'

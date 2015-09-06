@@ -6,9 +6,10 @@ class CreatePlants < ActiveRecord::Migration
       t.string    :science_name
       t.string 		:leaf_collor
       t.string		:blossom_collor
-      t.string    :blossom_start
+      t.date      :blossom_start
       t.string    :blossom_duration
       t.text      :description
+      t.float     :price
 
       t.string    :seo_title
       t.text      :seo_keywords

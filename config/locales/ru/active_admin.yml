@@ -1,0 +1,8 @@
+---
+ru:
+  active_admin:
+    views:
+      categories:
+        form:        
+          add_new_image: Добавить изображение
+        

@@ -1,8 +1,9 @@
 class CreateCategories < ActiveRecord::Migration
   def change
     create_table :categories do |t|
-      t.string :name,       index: true
+      t.string  :name,       index: true
       t.integer :parent_id, index: true
+      t.text    :description
 
       t.string    :seo_title
       t.text      :seo_keywords

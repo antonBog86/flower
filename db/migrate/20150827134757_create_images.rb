@@ -2,8 +2,7 @@ class CreateImages < ActiveRecord::Migration
   def change
     create_table :images do |t|
       t.string 	:name
-      t.string 	:path
-      t.integer :version
+      t.string 	:path      
       t.integer :plant_id,    index: true
       t.integer :category_id, index: true
       # custom ordering
