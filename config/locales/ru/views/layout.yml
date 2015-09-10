@@ -1,0 +1,8 @@
+---
+ru:
+  views:
+    layout:
+      navpanel:
+        categories: Категории
+        homepage: Главная
+        basket: Корзина

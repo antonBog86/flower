@@ -7,6 +7,8 @@ class Category < ActiveRecord::Base
   has_one  :image, dependent: :destroy
 
   validates :name, presence: true
-  # self.per_page = 8
+
+  scope :parents, -> { where(parent_id: nil) }
+  scope :subcategories, -> { where.not(parent_id: nil) }
 
 end

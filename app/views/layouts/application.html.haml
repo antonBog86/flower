@@ -25,79 +25,7 @@
       = render 'layouts/header'        
     #main
       .container
-        %header
-          %h2 Gravida nibh quis urna
-        .row
-          .3u
-            %section
-              %a.image.full{:href => "#"}
-                %img{:alt => "", :src => asset_path("pics01.jpg")}/
-              %p Quisque dictum. Pellentesque viverra  enim. Integer nisl risus, sagittis convallis, rutrum id, elementum.
-              %a.button{:href => "#"} Read More
-          .3u
-            %section
-              %a.image.full{:href => "#"}
-                %img{:alt => "", :src => asset_path("pics11.jpg")}/
-              %p Pellentesque viverra  enim. Tristique ante ut risus. Quisque dictum. Integer sagittis convallis elementum.
-              %a.button{:href => "#"} Read More
-          .3u
-            %section
-              %a.image.full{:href => "#"}
-                %img{:alt => "", :src => asset_path("pics12.jpg")}/
-              %p Pellentesque viverra  enim. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum.
-              %a.button{:href => "#"} Read More
-          .3u
-            %section
-              %a.image.full{:href => "#"}
-                %img{:alt => "", :src => asset_path("pics13.jpg")}/
-              %p Tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis elementum.
-              %a.button{:href => "#"} Read More
-        .divider  
-        .row
-          / Content
-          .8u.skel-cell-important
-            %section#content
-              %header
-                %h2 Integer gravida nibh quis urna
-                %span.byline Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum
-              %p
-                %a.image.full{:href => "#"}
-                  %img{:alt => "", :src => asset_path("pics02.jpg")}/
-              %p
-                This is
-                = succeed "," do
-                  %strong Monochromed
-                = succeed "." do
-                  %a{:href => "http://templated.co"} TEMPLATED
-                %a{:href => "http://templated.co/license"} Creative Commons Attribution
-                license, so use it for whatever (personal or commercial) – just give us credit! Check out more of our stuff at
-                %a{:href => "http://templated.co"} our site
-                or follow us on
-                = succeed "." do
-                  %a{:href => "http://twitter.com/templatedco"} Twitter
-              %a.button{:href => "#"} Read More
-          / /Content
-          / Sidebar
-          #sidebar.4u
-            %section
-              %header
-                %h2 Gravida praesent
-                %span.byline Praesent lacus congue rutrum
-              %p Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum. Maecenas luctus lectus at sapien. Consectetuer adipiscing elit.
-              %ul.default
-                %li
-                  %a{:href => "#"} Pellentesque quis lectus gravida blandit.
-                %li
-                  %a{:href => "#"} Lorem ipsum consectetuer adipiscing elit.
-                %li
-                  %a{:href => "#"} Phasellus nec nibh pellentesque congue.
-                %li
-                  %a{:href => "#"} Cras aliquam risus pellentesque pharetra.
-                %li
-                  %a{:href => "#"} Duis non metus commodo euismod lobortis.
-                %li
-                  %a{:href => "#"} Lorem ipsum dolor adipiscing elit.
-          / Sidebar
+        = yield
     / Main
     / Footer          
     #copyright
@@ -106,4 +34,3 @@
         %a{:href => "http://templated.co"} TEMPLATED   
         developer:     
         %a{:href => "https://www.linkedin.com/pub/anton-bogarsukov/49/438/568"} Anton
-        
