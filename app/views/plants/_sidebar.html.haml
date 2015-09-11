@@ -1,0 +1,10 @@
+#sidebar.4u
+  %section
+    %header
+      %h2 Поиск
+      %span.byline
+        - ('А'..'Я').each do |letter|
+          = link_to letter, plants_path(search: { name: letter }.merge((params[:search] || {}).except(:name)) )
+    = form_for(:plant, url: plants_path, method: :get) do |f|
+      = f.text_field(:name)
+      = f.select(:blossom_start, options_for_select(['z','d']), name: 'search[blossom_start]')
