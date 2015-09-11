@@ -9,6 +9,7 @@
     %ul
       - [{ name: t('views.layout.navpanel.homepage'), path: root_path },
          { name: t('views.layout.navpanel.categories'), path: categories_path },
+         { name: t('views.layout.navpanel.plants'), path: plants_path },
          { name: t('views.layout.navpanel.basket'), path: orders_path }].each do |hash|
-        %li{ class: current_path == hash[:path] ? 'active' : nil }
+        %li{ class: current_page?(hash[:path]) ? 'active' : nil }
           = link_to hash[:name], hash[:path]

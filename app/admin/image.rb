@@ -1,5 +1,5 @@
 ActiveAdmin.register Image do
-  permit_params :name, :path, :category_id, :plant_id, :weight, :version
+  permit_params :name, :path, :category_id, :plant_id, :weight
 
   filter :name
   filter :category
@@ -15,7 +15,6 @@ ActiveAdmin.register Image do
       f.input :category_id, :input_html => { :value => f.object.category_id || params[:category_id] }
       f.input :plant_id, :input_html => { :value => f.object.plant_id || params[:plant_id] }
       f.input :weight
-      f.input :version
     end
 
     f.actions  

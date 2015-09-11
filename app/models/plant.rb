@@ -6,5 +6,9 @@ class Plant < ActiveRecord::Base
   has_many    :ordered_plants
   has_many    :orders, through: :ordered_plans
 
-  # self.per_page = 10
+  def main_image
+    images.order(:weight).first
+  end
+
+  paginates_per 10
 end

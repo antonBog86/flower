@@ -1,2 +1,6 @@
-%h1 Plants#index
-%p Find me in app/views/plants/index.html.haml
+%header
+  %h2
+    Растения
+.row
+  = render @plants, cache: true
+

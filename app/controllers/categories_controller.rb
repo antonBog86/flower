@@ -1,10 +1,10 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.parents.all
+    @categories = Category.primary.all
   end
 
   def show
-    @subcategories =
     @category = Category.find(params[:id])
+    @subcategories = @category.children
   end
 end

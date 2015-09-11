@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   resource :orders, only: [:show]
-  resource :categories, only: [:index, :show]
-  resource :plants, only: [:index, :show]
+  resources :categories, only: [:index, :show]
+  resources :plants, only: [:index, :show] do
+    post :order, on: :member
+  end
 
   root :to => 'categories#index'
 end

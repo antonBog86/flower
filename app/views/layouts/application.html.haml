@@ -1,20 +1,19 @@
 !!!
 %html
   %head
-    %meta(charset="utf-8")
-    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
-    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %meta{:content => "", :name => "description"}/
-    %meta{:content => "", :name => "keywords"}/
-    %title= content_for?(:title) ? yield(:title) : "Flower"
+    - cache do
+      = tag :meta, :charset => ::Flower::Application.config.encoding
+      = tag :meta, :'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'
+      = tag :meta, :name => 'viewport', :content => 'width=device-width, height=device-height'
+      = tag :meta, :'http-equiv' => :msthemecompatible, :content => :no
+      = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+      = stylesheet_link_tag 'basic'
+      = stylesheet_link_tag 'galleriffic-5'
+      -#= stylesheet_link_tag 'black'
+      %link{:href => "http://fonts.googleapis.com/css?family=Oxygen:400,300,700", :rel => "stylesheet", :type => "text/css"}/
     = csrf_meta_tags    
-    
-    = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
-    = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
-    = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
-    = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
-    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
-    %link{:href => "http://fonts.googleapis.com/css?family=Oxygen:400,300,700", :rel => "stylesheet", :type => "text/css"}/
+    = display_meta_tags :site => Settings.site_title, :separator => '-', :og => {:title => :title}
+
     /[if lt IE 8]
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
     = javascript_include_tag "application"
@@ -26,8 +25,6 @@
     #main
       .container
         = yield
-    / Main
-    / Footer          
     #copyright
       .container
         design:

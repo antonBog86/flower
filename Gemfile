@@ -47,6 +47,8 @@ gem "config"
 
 gem 'sidekiq'
 
+gem 'kaminari'
+
 # Use Capistrano for deployment
 gem 'capistrano', '~> 3.2.1'
 gem 'capistrano-bundler', '~> 1.1.2'

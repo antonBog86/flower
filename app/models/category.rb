@@ -8,7 +8,8 @@ class Category < ActiveRecord::Base
 
   validates :name, presence: true
 
-  scope :parents, -> { where(parent_id: nil) }
+  scope :primary, -> { where(parent_id: nil) }
   scope :subcategories, -> { where.not(parent_id: nil) }
 
+  paginates_per 10
 end

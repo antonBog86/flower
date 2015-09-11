@@ -15,3 +15,5 @@
 //= require skel.min
 //= require skel-panels.min
 //= require init
+//= require jquery.galleriffic
+//= require jquery.opacityrollover.js

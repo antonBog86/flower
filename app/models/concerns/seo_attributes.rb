@@ -6,6 +6,8 @@ module SeoAttributes
     before_save :set_seo_title
     before_save :set_seo_keywords
     before_save :set_seo_description
+
+    serialize :set_seo_keywords, Array
   end
 
   def set_seo_title
@@ -13,10 +15,14 @@ module SeoAttributes
   end
 
   def set_seo_keywords
-    self.seo_keywords = seo_keywords.push(name)
+    seo_keywords ||= []
+    if seo_keywords.count <= 20
+      self.seo_keywords = seo_keywords.push(name)
+    end
   end
 
   def set_seo_description
-    self.seo_description = description
+    # 160 - recommended_length_of_seo_description
+    self.seo_description = description.truncate(160, separator: " ")
   end
 end
