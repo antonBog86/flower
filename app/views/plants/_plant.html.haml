@@ -1,5 +1,7 @@
 .3u
   %section
+    %h2
+      = plant.name.capitalize
     - if plant.images.exists?
       %a.image.full{:href => plant_path(plant)}
         %img{:alt => "", :src => asset_path(plant.main_image.path.url)}/

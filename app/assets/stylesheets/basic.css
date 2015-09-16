@@ -18,3 +18,10 @@ div#footer {
 	padding: 20px 0 40px;
 	text-align: center;
 }
+input, select, label {
+    display: block;
+
+}
+input, select {
+    margin-bottom: 5px;
+}

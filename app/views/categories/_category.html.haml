@@ -1,7 +1,7 @@
 .3u
   %section
     %a.image.full{:href => category_path(category)}
-      %img{:alt => "", :src => asset_path(category.image.path.url)}/
+      %img{:alt => "", :src => asset_path(category.image.path.catalog_image.url)}/
     %p= truncated_text(category.description)
     %a.button{:href => category_path(category)}
       = t('views.shared.read_more')

@@ -1,4 +1,5 @@
 class PlantsController < ApplicationController
+  before_action :color_variables, only: [:index, :show]
   def index
     @plants = Plant.order(:name).page(params[:page])
     include_search
@@ -14,6 +15,11 @@ class PlantsController < ApplicationController
   end
 
   private
+
+  def color_variables
+    @human_blossom_collors = Plant.uniq.pluck(:blossom_collor)
+    @human_leaf_collors = Plant.uniq.pluck(:leaf_collor)
+  end
 
   def include_search
     if params[:search]

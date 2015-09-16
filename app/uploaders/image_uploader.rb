@@ -1,10 +1,7 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
-
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -32,9 +29,17 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
-  # end
+  version :main, if: :is_plant? do
+    process :resize_to_fit => [500, 500]
+  end
+
+  version :thumb, if: :is_plant? do
+    process :resize_to_fill => [75, 75]
+  end
+
+  version :catalog_image do
+    process :resize_to_fill => [250, 160]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -47,5 +52,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+private
 
+  def is_plant? picture
+    model.plant_id.present?
+  end
 end

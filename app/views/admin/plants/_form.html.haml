@@ -1,17 +1,20 @@
-- Arbre::Context.new({}, self) do  
+- Arbre::Context.new({}, self) do
   = semantic_form_for [:admin, resource] do |f|
-    = f.inputs '' do 
+    = f.inputs '' do
       - controller.class.list_of_allowed_attr.each do |attr|
-        = f.input attr
+        - if attr == :blossom_start
+          = f.input attr, discard_year: true
+        - else
+          = f.input attr
 
     = f.actions
   - if resource.persisted?
     = panel Image.model_name.human do
       - if resource.images
-        - table_for(resource.image) do
+        - table_for(resource.images) do
           - column :name
-          - column :path      
+          - column :path
           - column do |c|
-            - link_to('', admin_image_path(c), class: 'member_link view_link') + link_to('', edit_admin_image_path(c, plant_id: resource.plant_id), class: 'member_link edit_link') + link_to('', admin_image_path(c), method: :delete, class: 'member_link delete_link')
+            - link_to('', admin_image_path(c), class: 'member_link view_link') + link_to('', edit_admin_image_path(c, plant_id: resource.id), class: 'member_link edit_link') + link_to('', admin_image_path(c), method: :delete, class: 'member_link delete_link')
       - span do
-        - link_to t('active_admin.views.categories.form.add_new_image'), new_admin_image_path(category_id: resource.id), class: 'link_as_button'
+        - link_to t('active_admin.views.categories.form.add_new_image'), new_admin_image_path(plant_id: resource.id), class: 'link_as_button'

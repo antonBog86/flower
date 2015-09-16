@@ -9,6 +9,17 @@ ActiveAdmin.register Plant do
 
   filter :name
   filter :category
-  filter :blossom_start    
+  filter :blossom_start
 
+  index do
+    columns = controller.class.list_of_allowed_attr - [:description, :seo_title, :seo_keywords, :seo_description, :science_name]
+
+    columns.each do |attr|
+      column :name
+    end
+
+    actions
+  end
+
+  form partial: 'form'
 end

@@ -2,7 +2,10 @@
   %h2
     Растения
 .row
-  = render @plants, cache: true
-
   .8u.skel-cell-important
+    - if @plants.any?
+      = render @plants, cache: true
+    - else
+      %p
+        К сожалению по вашему запросу ничего не найдено.
   = render 'sidebar'
