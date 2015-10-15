@@ -103,8 +103,8 @@ ActiveRecord::Schema.define(version: 20150906181749) do
     t.string   "name",             limit: 255
     t.integer  "category_id",      limit: 4
     t.string   "science_name",     limit: 255
-    t.string   "leaf_collor",      limit: 255
-    t.string   "blossom_collor",   limit: 255
+    t.string   "leaf_color",       limit: 255
+    t.string   "blossom_color",    limit: 255
     t.date     "blossom_start"
     t.string   "blossom_duration", limit: 255
     t.text     "description",      limit: 65535

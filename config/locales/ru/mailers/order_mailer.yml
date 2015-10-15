@@ -1,0 +1,7 @@
+---
+ru:
+  order_mailer:
+    created:
+      subject: Вы сделали заказ на сайте %{name}
+    confirmed:
+      subject: Ваш заказ подтвержден на сайте %{name}

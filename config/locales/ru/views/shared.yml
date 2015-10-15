@@ -3,3 +3,9 @@ ru:
   views:
     shared:
       read_more: Подробнее
+      order:
+        active: В корзину
+        disabled: Уже в корзене
+        delete: Отказаться
+        delete_all: Отменить все
+        edit: Создать

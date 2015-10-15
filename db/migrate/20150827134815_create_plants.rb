@@ -4,8 +4,8 @@ class CreatePlants < ActiveRecord::Migration
       t.string    :name,         index: true
       t.integer   :category_id,  index: true
       t.string    :science_name
-      t.string 		:leaf_collor
-      t.string		:blossom_collor
+      t.string 		:leaf_color
+      t.string		:blossom_color
       t.date      :blossom_start
       t.string    :blossom_duration
       t.text      :description

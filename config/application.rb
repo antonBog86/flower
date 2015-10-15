@@ -16,7 +16,7 @@ module Flower
 
     config.encoding = 'utf-8'
 
-    config.assets.precompile += %w( basic.css galleriffic-5.css black.css)
+    config.assets.precompile += %w(basic.css galleriffic-5.css black.css bootstrap_and_overrides.css)
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.

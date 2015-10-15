@@ -7,12 +7,12 @@
           = link_to letter, plants_path(search: { name: letter }.merge((params[:search] || {}).except(:name)) )
     = form_for(:search, url: plants_path, method: :get) do |f|
       = f.label :name, 'Названиие или его часть'
-      = f.text_field(:name)
+      = f.text_field(:name, value: params[:search] && params[:search][:name])
       = f.label :blossom_start, 'Начало цветения в'
-      = f.select(:blossom_start, options_for_select(human_months))
-      = f.label :leaf_collor, 'Цвет листьев'
-      = f.select(:leaf_collor, options_for_select(@human_leaf_collors), include_blank: true )
-      = f.label :blossom_collor, 'Окрас цветения'
-      = f.select(:blossom_collor, options_for_select(@human_blossom_collors), include_blank: true)
+      = f.select(:blossom_start, options_for_select(human_months, params[:search] && params[:search][:blossom_start]), include_blank: true)
+      = f.label :leaf_color, 'Цвет листьев'
+      = f.select(:leaf_color, options_for_select(@human_leaf_colors, params[:search] && params[:search][:leaf_color]), include_blank: true )
+      = f.label :blossom_color, 'Окрас цветения'
+      = f.select(:blossom_color, options_for_select(@human_blossom_colors, params[:search] && params[:search][:blossom_color]), include_blank: true)
 
       = f.submit 'Искать', class: 'button'

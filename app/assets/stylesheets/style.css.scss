@@ -9,6 +9,26 @@
 /*********************************************************************************/
 /* Basic                                                                         */
 /*********************************************************************************/
+    .color_div {
+      border: 3px outset;
+      display: inline-block;
+      padding: 8px 30px;
+      border-radius: 5px;
+      vertical-align: middle;
+    }
+    .inline_block{
+      width: 100%;
+      display: inline-block;
+    }
+    .float_left{
+      float: left;
+    }
+    .margined{
+      margin: 10px;
+    }
+    .error{
+      color: red;
+    }
 
 	body
 	{
@@ -142,6 +162,11 @@
 				color: #FFF !important;
 			}
 
+
+        .order_button{
+          float: right;
+          margin: 0;
+        }
 
 	/* Sections/Articles */
 

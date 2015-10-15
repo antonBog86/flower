@@ -7,7 +7,7 @@ module SeoAttributes
     before_save :set_seo_keywords
     before_save :set_seo_description
 
-    serialize :set_seo_keywords, Array
+    serialize :seo_keywords, Array
   end
 
   def set_seo_title
@@ -17,7 +17,8 @@ module SeoAttributes
   def set_seo_keywords
     seo_keywords ||= []
     if seo_keywords.count <= 20
-      self.seo_keywords = seo_keywords.push(name)
+      self.seo_keywords = seo_keywords.push(name) unless seo_keywords.include?(name)
+      self.seo_keywords = seo_keywords.push(name) unless seo_keywords.include?(science_name)
     end
   end
 

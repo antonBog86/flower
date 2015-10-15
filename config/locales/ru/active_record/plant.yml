@@ -11,11 +11,12 @@ ru:
         category: Категория
         name: Название
         science_name: Научное название
-        leaf_collor: Цвет листьев
-        blossom_collor: Цвет цветка
+        leaf_color: Цвет листьев
+        blossom_color: Окрас цветка
         blossom_start: Начало цветения
         blossom_duration: Длительность цветения
         description: Описание
+        price: Цена
         seo_title: Поисковое имя
         seo_keywords: Ключевые слова поиска
         seo_description: Описание для роботов

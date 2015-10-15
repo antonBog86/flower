@@ -1,0 +1,21 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+.modal.in .custom-modal-dialog {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.modal.fade .custom-modal-dialog {
+  transition: transform 0.3s ease-out;
+}
+
+.custom-modal-dialog {
+  position: relative;
+  margin: 30px auto;
+}

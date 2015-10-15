@@ -1,0 +1,9 @@
+= simple_form_for order do |f|
+  -#= f.label :orderer_name, 'Ваше имя'
+  = f.input :orderer_name
+  -#= f.label :orderer_email, 'Почтовый ящик'
+  = f.input :orderer_email, as: :email
+  -#= f.label :orderer_comment, 'Любая дополнительная информация'
+  = f.input :orderer_comment, as: :text
+  = f.submit 'Подтвердить', class: 'button'
+

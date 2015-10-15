@@ -1,0 +1,13 @@
+<% params[:ids].each do |id| %>
+  $('.plant_<%= id %>').remove();
+<% end %>
+if($('table tbody tr').length == 1){
+  $('table tbody tr.info').remove();
+}
+else{
+  var sum = 0.0;
+  $('table .price').each(function(){
+    sum += parseFloat($(this).html());
+  })
+  $('tr.info .total_price').html(sum);
+}

@@ -1,6 +1,6 @@
 ActiveAdmin.register Plant do
   def controller.list_of_allowed_attr
-    [:name, :category_id, :science_name, :leaf_collor, :blossom_collor, 
+    [:name, :category, :science_name, :leaf_color, :blossom_color, :price,
                 :blossom_start, :blossom_duration, :description, :seo_title,
                 :seo_keywords, :seo_description]
   end

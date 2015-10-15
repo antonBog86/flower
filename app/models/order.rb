@@ -8,7 +8,15 @@ class Order < ActiveRecord::Base
 
   uniquify :token
 
+  accepts_nested_attributes_for :ordered_plants
+
+  validates :orderer_name, presence: true
+  validates :orderer_email, presence: true
+  validates_format_of :orderer_email,:with => Devise.email_regexp
+
   scope :expired, -> { where('updated_at > ?', 1.year.ago) }
+
+  after_create :send_creation_email
 
   aasm :column => :state, enum: true do
     Order.states.keys.each.with_index do |st, i|
@@ -40,6 +48,10 @@ class Order < ActiveRecord::Base
   end
 
   def send_confirmed_email
-    OrderMailer.confirmed(self).deliver_later
+    OrderMailer.confirmed(self.id).deliver_later
+  end
+
+  def send_creation_email
+    OrderMailer.created(self.id).deliver_later
   end
 end

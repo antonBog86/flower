@@ -13,43 +13,47 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.0.4'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', '~> 2.5.3'
 
 # view & styles
-gem 'haml-rails'
+gem 'haml-rails', '~> 0.9.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem "font-awesome-rails"
+gem "font-awesome-rails", '~> 4.4.0'
 
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '~> 3.2.0'
 
 # image upload
-gem 'carrierwave'
+gem 'carrierwave', '~> 0.10.0'
 
 # auth
-gem 'devise'
+gem 'devise', '~> 3.5.2'
 
 # state machine
-gem 'aasm'
+gem 'aasm', '~> 4.0.8'
 
 # admin_panel
 gem 'activeadmin', github: 'gregbell/active_admin'
 
-gem 'sitemap_generator'
+gem 'sitemap_generator', '~> 5.1.0'
 
-gem 'meta-tags'
+gem 'meta-tags', '~> 2.0.0'
 
-gem 'uniquify'
+gem 'uniquify', '~> 0.1.0'
 
-gem "config"
+gem "config", '~> 1.0.0'
 
-gem 'sidekiq'
+gem 'sidekiq', '~> 3.5.0'
 
-gem 'kaminari'
+gem 'kaminari', '~> 0.16.3'
 
-gem "mini_magick"
+gem "mini_magick", '~> 4.3.3'
+
+gem 'draper', '~> 2.1.0'
+
+gem 'simple_form', '~> 3.2.0'
 
 # Use Capistrano for deployment
 gem 'capistrano', '~> 3.2.1'
@@ -62,19 +66,19 @@ group :doc do
 end
 
 group :development do
-  gem 'quiet_assets'
+  gem 'quiet_assets', '~> 1.1.0'
 end
 
 group :development, :test do
-  gem 'faker'
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'factory_girl_rails'
-  gem 'pry-rails'
-  gem 'pry-byebug'
-  gem 'pry-remote'
+  gem 'faker',       '~> 1.5.0'
+  gem 'rspec-rails', '~> 3.3.3'
+  gem 'capybara',    '~> 2.5.0'
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'pry-rails',  '~> 0.3.4'
+  gem 'pry-byebug', '~> 3.2.0'
+  gem 'pry-remote', '~> 0.1.8'
 end
 
 group :test do
-  gem 'poltergeist'
+  gem 'poltergeist', '~> 1.6.0'
 end

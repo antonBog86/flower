@@ -29,11 +29,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :main, if: :is_plant? do
+  version :main do
     process :resize_to_fit => [500, 500]
   end
 
-  version :thumb, if: :is_plant? do
+  version :thumb do
     process :resize_to_fill => [75, 75]
   end
 
@@ -52,9 +52,4 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-private
-
-  def is_plant? picture
-    model.plant_id.present?
-  end
 end

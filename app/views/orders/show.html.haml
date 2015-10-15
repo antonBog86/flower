@@ -2,49 +2,47 @@
   / Content
   .8u.skel-cell-important
     %section#content
+      %table.table.table-striped.table-hover.table-responsive
+        %thead
+          %th #
+          %th= Plant.human_attribute_name('name')
+          %th= Plant.human_attribute_name('price')
+          - unless @order && @order.persisted?
+            %th
+        %tbody
+          - total = 0.0
+          - @plants.each.with_index do |plant, i|
+            %tr.presentable{ id: dom_id(plant)}
+              %th= i + 1
+              %th= link_to(plant.name, plant_path(plant))
+              %th.price= plant.price
+              - total += plant.price if plant.price
+              - unless @order && @order.persisted?
+                %th= link_to(t('views.shared.order.delete'), remove_plant_from_orders_path(ids: [plant.id]), remote: true, method: :delete)
+          %tr.info
+            %th Итого
+            %th
+            %th.total_price= total
+            - unless @order && @order.persisted?
+              %th= link_to(t('views.shared.order.delete_all'), remove_plant_from_orders_path(ids: [session[:order]]), remote: true, method: :delete)
+    - if @order && @order.persisted?
       %header
-        %h2 Integer gravida nibh quis urna
-        %span.byline Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum
-      #controls
-      #loading
-      #slideshow
-      #caption
-      #thumbs
+        %h2
+          %p
+            Заказ создан
+        %h3
+          %p
+            = "Ув #{@order.orderer_name}, проверте свою почту #{@order.orderer_email}"
+    - else
+      = link_to(t('views.shared.order.edit'), new_orders_path, class: 'button')
 
-      /%p
-        %a.image.full{:href => "#"}
-          %img{:alt => "", :src => asset_path("pics02.jpg")}/
-      %p
-        This is
-        = succeed "," do
-          %strong Monochromed
-        = succeed "." do
-          %a{:href => "http://templated.co"} TEMPLATED
-        %a{:href => "http://templated.co/license"} Creative Commons Attribution
-        license, so use it for whatever (personal or commercial) – just give us credit! Check out more of our stuff at
-        %a{:href => "http://templated.co"} our site
-        or follow us on
-        = succeed "." do
-          %a{:href => "http://twitter.com/templatedco"} Twitter
-      %a.button{:href => "#"} Read More
-  / Content
   / Sidebar
   #sidebar.4u
     %section
-      %header
-        %h2 Gravida praesent
-        %span.byline Praesent lacus congue rutrum
-      %p Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum. Maecenas luctus lectus at sapien. Consectetuer adipiscing elit.
-      %ul.default
-        %li
-          %a{:href => "#"} Pellentesque quis lectus gravida blandit.
-        %li
-          %a{:href => "#"} Lorem ipsum consectetuer adipiscing elit.
-        %li
-          %a{:href => "#"} Phasellus nec nibh pellentesque congue.
-        %li
-          %a{:href => "#"} Cras aliquam risus pellentesque pharetra.
-        %li
-          %a{:href => "#"} Duis non metus commodo euismod lobortis.
-        %li
-          %a{:href => "#"} Lorem ipsum dolor adipiscing elit.
+
+:javascript
+  jQuery(document).ready(function($) {
+    $('table tr.presentable').on('mouseover', function(){
+      $.get("/plants/"+$(this).attr('id').replace('plant_', '') + '/details')
+    });
+  });

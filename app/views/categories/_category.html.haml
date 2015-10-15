@@ -1,7 +1,7 @@
 .3u
   %section
-    %a.image.full{:href => category_path(category)}
+    %a.image.full{:href => plants_path(search: { category_id: category.id })}
       %img{:alt => "", :src => asset_path(category.image.path.catalog_image.url)}/
     %p= truncated_text(category.description)
-    %a.button{:href => category_path(category)}
+    %a.button{:href => plants_path(search: { category_id: category.id }) }
       = t('views.shared.read_more')
